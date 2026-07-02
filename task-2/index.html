@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get an Expert Orthopaedic Opinion | OrthoNow</title>
+  <meta
+    name="description"
+    content="Book a consultation with OrthoNow's orthopaedic specialists in Bengaluru. For working professionals dealing with knee or back pain."
+  />
+
+  <!--
+    Single self-contained file by design: no external CSS/JS/font/image
+    requests, so it runs standalone and loads as fast as possible - this
+    page's whole job is a 90+ mobile PageSpeed score and one clean
+    conversion, not visual richness.
+  -->
+  <style>
+    :root {
+      --primary: #0b5fa5;
+      --primary-dark: #084a83;
+      --text: #1a1a1a;
+      --text-muted: #5b6b75;
+      --border: #dde3e7;
+      --error: #c0392b;
+      --bg: #f3f6f8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .subhead {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* The one trust element the brief asks for - clinic count, kept as
+       a single quiet line rather than a whole testimonials section. */
+    .trust {
+      font-size: 14px;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+
+    input {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      /* 16px stops iOS Safari auto-zooming into the field on focus -
+         a real mobile detail, not a cosmetic one. */
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(11, 95, 165, 0.15);
+    }
+
+    .form-error {
+      color: var(--error);
+      font-size: 14px;
+      min-height: 20px;
+      margin-top: 8px;
+    }
+
+    .cta {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .cta:hover {
+      background: var(--primary-dark);
+    }
+
+    .cta:focus-visible {
+      outline: 3px solid #e8a33d;
+      outline-offset: 2px;
+    }
+
+    .thank-you {
+      text-align: center;
+    }
+
+    .thank-you h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .thank-you p {
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 600px) {
+      .card {
+        padding: 40px 36px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+    <div class="card">
+
+      <p class="eyebrow">OrthoNow &middot; Orthopaedic Specialists</p>
+      <h1>Get an Expert Orthopaedic Opinion</h1>
+      <p class="subhead">
+        For Bengaluru professionals living with knee or back pain. Book a
+        consultation in under a minute &mdash; a specialist calls you back,
+        no waiting room required.
+      </p>
+
+      <p class="trust">
+        Trusted across 9 orthopaedic clinics in Bengaluru, Hyderabad &amp; Chennai
+      </p>
+
+      <!-- 2-field form only, per the brief - name and phone, nothing else -->
+      <form id="consultation-form" novalidate>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Your phone number" required />
+
+        <p id="form-error" class="form-error" role="alert"></p>
+
+        <button type="submit" class="cta">Get My Consultation</button>
+      </form>
+
+      <!-- Shown in place of the form after submit - no reload, no redirect -->
+      <div id="thank-you" class="thank-you" role="status" tabindex="-1" hidden>
+        <h2>Thanks &mdash; we've got it.</h2>
+        <p>An OrthoNow specialist will call you shortly to schedule your consultation.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // GTM would normally initialize this; this line just guarantees
+      // the array exists even if this page runs with no GTM container
+      // attached, so the push below never throws.
+      window.dataLayer = window.dataLayer || [];
+
+      var form = document.getElementById('consultation-form');
+      var thankYou = document.getElementById('thank-you');
+      var errorEl = document.getElementById('form-error');
+      var nameField = document.getElementById('name');
+      var phoneField = document.getElementById('phone');
+
+      function isValidPhone(value) {
+        var digitsOnly = value.replace(/\D/g, '');
+        return digitsOnly.length >= 10;
+      }
+
+      form.addEventListener('submit', function (event) {
+        // Stop the native form submission - this page has nowhere to
+        // post to, and the whole point is a same-page thank-you state.
+        event.preventDefault();
+
+        var name = nameField.value.trim();
+        var phone = phoneField.value.trim();
+
+        if (!name || !phone) {
+          errorEl.textContent = 'Please enter your name and phone number.';
+          return;
+        }
+
+        if (!isValidPhone(phone)) {
+          errorEl.textContent = 'Please enter a valid phone number.';
+          return;
+        }
+
+        errorEl.textContent = '';
+
+        // The one thing this whole page exists to do: fire on submit,
+        // never on page load, with real parameters attached.
+        window.dataLayer.push({
+          event: 'consultation_form_submitted',
+          form_name: 'orthopaedic_consultation_landing_page',
+          page_location: window.location.href
+        });
+
+        form.hidden = true;
+        thankYou.hidden = false;
+        thankYou.focus();
+      });
+    })();
+  </script>
+
+</body>
+</html>
