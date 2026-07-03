@@ -46,7 +46,7 @@ Tech Stack
 ​[x] Local Lighthouse Mobile check — 90+ Mobile Core Web Vitals achieved
 ​[x] Hosted on GitHub Pages for live preview
 ​[ ] Record the Loom video (max 8 min): GTM schema decisions (2 min) → live dataLayer demo in console (3 min) → integration architecture answer (3 min)
-​[ ] Commit and push this repository, share public/access with himanshu@namoza.com
+​
 ​[ ] Email the repo link + Loom link to naman@namoza.com — subject: "Developer Assignment - Harish khan"
 ​🚀 Live Landing Page Link: https://spontaneous-toffee-b54dd9.netlify.app/task-2/index.html
 ​📹 Technical Walkthrough Video (Loom): https://www.loom.com/share/b8962f687d1143dd836cf62551c0727e
